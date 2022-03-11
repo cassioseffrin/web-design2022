@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="mq.css">
+</head>
+
+<body>
+
+    <div class="App-payment">
+        <nav class="menu">
+            <ul>
+                <li><a href="default.asp">Home</a></li>
+                <li><a href="news.asp">News</a></li>
+                <li><a href="contact.asp">Contact</a></li>
+                <li><a href="about.asp">About</a></li>
+            </ul>
+        </nav>
+        <div style="height: 30px; width: 30px;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </div>
+
+        um texto qualquer =
+        <p id="largura"> </p>
+    </div>
+</body>
+
+<script>
+    const largura = window.innerHeight;
+    console.log(largura);
+    document.querySelector("#largura").innerText = `largura: ${largura}px`;
+</script>
+
+</html>

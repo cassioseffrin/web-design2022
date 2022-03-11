@@ -1,0 +1,60 @@
+.App-payment {
+    padding: 20px;
+    box-shadow: 3px 3px 5px 6px rgb(0, 0, 0);
+    border-radius: 15px;
+  }
+
+  .App-payment {
+    padding: 20px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border-radius: 15px;
+  }
+  @media screen and (max-width:767px){
+    .App-payment {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+ 
+    }
+    .menu {
+        display: block;
+    }
+  }
+  @media screen and (max-width:899px) and (min-width:768px) {
+    .App-payment {
+      margin-left: 70px;
+      margin-right: 70px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .menu {
+        display: none;
+    }
+  }
+  @media screen and (max-width:1200px) and (min-width:900px) {
+    .App-payment {
+      margin-left: 100px;
+      margin-right: 100px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    .menu {
+        display: none;
+    }
+  }
+  @media screen and  (min-width:1201px) {
+    .App-payment {
+      margin-left: 200px;
+      margin-right: 200px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    .menu {
+        display: none;
+    }
+  }
+  
+
+ 
+  
