@@ -1,14 +1,20 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Menu from './Menu';
 import Item from './Item';
+import React, { useEffect, useState } from 'react'
+import Repositories from './components/Repositories';
 
 function App() {
   return (
-    <div className="App">
-      <Item apertou={(texto) => { console.log(texto) }}> Teste </Item>
-    </div>
+    <>
+      <Menu>
+        <Item apertou={(texto) => { console.log(texto) }}> Cadastro </Item>
+        <Item apertou={(texto) => { console.log(texto) }}> Relatorios </Item>
+        <Item apertou={(texto) => { console.log(texto) }}> Ajuda </Item>
+      </Menu>
+      <Repositories />
+    </>
   );
 }
-
 export default App;

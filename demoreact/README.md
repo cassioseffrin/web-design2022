@@ -1,3 +1,63 @@
+async function getPlanosIndividual(callback) {
+  const _domain = 'provin';
+  const _service = 1;
+  const URLAPI = 'https://api.repag.com.br';
+
+
+  const response = await fetch(
+    `${URLAPI}/plan?domain=${_domain}&service=${_service}`
+  );
+  const data = await response.json();
+  if (response.status !== 200) throw Error(data.message);
+  return callback(data);
+}
+  const [individualPlans, setIndividualPlans] = useState([]);
+
+  useEffect(() => {
+
+
+
+    getPlanosIndividual((res) => {
+      setIndividualPlans(res);
+    });
+
+
+  }, []);
+
+
+
+
+
+
+
+
+
+  export async function getLink(callback) {
+  const _domain = getDomain();
+  const _link = getLinkUrl();
+  const url = `${URLAPI}/checkout/getLink?domain=${_domain}&link=${_link}`;
+  const _headers = {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json',
+    'repagauth': process.env.REACT_APP_REPAG_AUTH
+  };
+  const _options = { method: 'post', headers: _headers, body: [] };
+  const response = await fetch(url, _options);
+  if (response.status >= 200 && response.status <= 204) {
+    try {
+      let res = await response.json();
+      callback(res ?? null);
+    } catch (e) {
+      console.log(e);
+      callback(null);
+
+    }
+  }
+  else if (response.status !== 200) {
+    callback(null);
+  }
+}
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
