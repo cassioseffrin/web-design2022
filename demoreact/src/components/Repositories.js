@@ -7,7 +7,7 @@ function Repositories() {
   useEffect(async () => {
     const repos = await getRepotorios();
     setRepo(repos);
-  }, [])
+  }, [repo])
   return (
     <div className="Repositories">
       <div> {repo.map((rep, index) => {

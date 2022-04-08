@@ -1,20 +1,35 @@
 
 import './App.css';
-import Menu from './Menu';
-import Item from './Item';
+
 import React, { useEffect, useState } from 'react'
-import Repositories from './components/Repositories';
+
+import BemVindo from './components/BemVindo';
+
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+import Vendas from './components/Vendas';
+import Locacoes from './components/Locacoes';
+
+
+
+// function App() {
+
+// }
+
 
 function App() {
   return (
-    <>
-      <Menu>
-        <Item apertou={(texto) => { console.log(texto) }}> Cadastro </Item>
-        <Item apertou={(texto) => { console.log(texto) }}> Relatorios </Item>
-        <Item apertou={(texto) => { console.log(texto) }}> Ajuda </Item>
-      </Menu>
-      <Repositories />
-    </>
+    <Router>
+      <div className='App'>
+
+        <Routes>
+          <Route path='/' element={<BemVindo />} />
+          <Route path='vendas' element={<Vendas />} />
+          <Route path='locacoes' element={<Locacoes />} />
+
+        </Routes>
+      </div>
+    </Router>
   );
 }
 export default App;
