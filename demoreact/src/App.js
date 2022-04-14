@@ -21,12 +21,10 @@ function App() {
   return (
     <Router>
       <div className='App'>
-
         <Routes>
           <Route path='/' element={<BemVindo />} />
-          <Route path='vendas' element={<Vendas />} />
+          <Route path='vendas/:nome/:sobrenome' element={<Vendas />} />
           <Route path='locacoes' element={<Locacoes />} />
-
         </Routes>
       </div>
     </Router>
