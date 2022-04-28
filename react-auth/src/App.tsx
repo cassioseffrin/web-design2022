@@ -13,19 +13,19 @@ import { servidorREST } from './auth';
 export default function App() {
   return (
     <AuthProvider>
-      <h1>nome do sistema</h1>
+      <h1>Nome do Sistema</h1>
 
-      <p>sistema de autenticacacao</p>
+      <p>Aplicativo React com Auth Provider</p>
 
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<PaginaPublica />} />
+          <Route path="/" element={<PublicPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/protected"
             element={
               <RequireAuth>
-                <PaginaSegura />
+                <PrivatePage />
               </RequireAuth>
             }
           />
@@ -64,9 +64,9 @@ let AuthContext = React.createContext<AuthContextType>(null!);
 function AuthProvider({ children }: { children: React.ReactNode }) {
   let [user, setUser] = React.useState<any>(null);
 
-  let entrar = (newUser: string, callback: VoidFunction) => {
+  let entrar = (userPasswd: string, callback: VoidFunction) => {
     return servidorREST.entrar(() => {
-      setUser(newUser);
+      setUser(userPasswd);
       callback();
     });
   };
@@ -153,10 +153,10 @@ function LoginPage() {
   );
 }
 
-function PaginaPublica() {
+function PublicPage() {
   return <h3>Tela login</h3>;
 }
 
-function PaginaSegura() {
-  return <h3>uma pagina que requer autenticacao</h3>;
+function PrivatePage() {
+  return <h3>Ola, voce esta vendo uma pagina privada</h3>;
 }
