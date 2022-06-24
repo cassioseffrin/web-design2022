@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+<script src="https://unpkg.com/@reactivex/rxjs@6.3.3/dist/global/rxjs.umd.js"></script>
+<title>Promises VS Observables</title> 
+</head> 
+
+<body>
+<script>
+    const { Observable } = rxjs; 
+    const promise = new Promise((resolve) => {
+        console.log('Iniciando a promise');
+        setTimeout(() => resolve(1), 3000); 
+    });
+
+    const observer = Observable.create((observer) => {
+        console.log('Iniciando o observable'); 
+        setTimeout(() => observer.next(1), 3000);
+    });
+
+    promise.then(num => console.log('Promise', num));
+    observer.subscribe(num => console.log('Observable', num));
+
+    setTimeout(() => {
+        promise.then(num => console.log('Promise', num));
+        observer.subscribe(num => console.log('Observable', num)); 
+    }, 2000); 
+</script>
+</body> 
+</html>
